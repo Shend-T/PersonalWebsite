@@ -55,6 +55,18 @@ export const translations = {
             "A simple website to attract as many customers as possible. For the company Rent A Car Visi.",
           desc2: "",
         },
+        {
+          desc1:
+            "ML model to predict bike rental demand using historical data and weather, seasonal, and time-based features.",
+          desc2:
+            "Analyzed demand patterns and evaluated how environmental and calendar factors influence bike-sharing usage.",
+        },
+        {
+          desc1:
+            "Developed a machine learning regression model to predict car prices in the American market using vehicle specifications and market data.",
+          desc2:
+            "Identified the key factors influencing car prices and analyzed their impact to support data-driven pricing and business decisions.",
+        },
       ],
 
       eduLabel: "Education & Certificates",
@@ -135,6 +147,18 @@ export const translations = {
           desc1:
             "Një web faqe e thjesht për atraktimin e sa më shumë klientëve. Për kompaninë Rent A Car Visi.",
           desc2: "",
+        },
+        {
+          desc1:
+            "Model ML për të parashikuar kërkesën për qira biçikletash duke përdorur të dhëna historike dhe karakteristika të motit, sezonale dhe të bazuara në kohë.",
+          desc2:
+            "Analizova modelet e kërkesës dhe vlerësova se si faktorët mjedisorë dhe kalendarikë ndikojnë në përdorimin e ndarjes së biçikletave",
+        },
+        {
+          desc1:
+            "Zhvillova një model regresioni të të mësuarit automatik për të parashikuar çmimet e makinave në tregun amerikan duke përdorur specifikimet e automjeteve dhe të dhënat e tregut.",
+          desc2:
+            "Identifikoi faktorët kryesorë që ndikojnë në çmimet e makinave dhe analizoi ndikimin e tyre për të mbështetur çmimet dhe vendimet e biznesit të bazuara në të dhëna.",
         },
       ],
 
