@@ -1,9 +1,11 @@
-import React from "react";
 import "./Main.css";
+import { useLang } from "../hooks/useLang";
 
 import work from "../assets/work1.png";
 
 function Main() {
+  const { t } = useLang();
+
   return (
     <div>
       <section id="hero" aria-label="Prezantimi">
@@ -13,10 +15,7 @@ function Main() {
           <br />
           <span className="accent">Tytynxhiu</span>
         </h1>
-        <p className="hero-subtitle fade-in">
-          Student i vitit të tretë në Inxhinieri Kompjuterike. Full-stack
-          developer dhe ML/Data Science entuziastë nga Prishtina, Kosovë.
-        </p>
+        <p className="hero-subtitle fade-in">{t("home").heroText}</p>
         <div className="hero-tags fade-in">
           <span className="tag">Python</span>
           <span className="tag">Django</span>
@@ -28,33 +27,22 @@ function Main() {
         </div>
         <div className="hero-cta fade-in">
           <a href="#contact" className="btn-primary">
-            Më Kontaktoni
+            {t("home").heroButton1}
           </a>
           <a href="#projects" className="btn-ghost">
-            Shiko Projektet
+            {t("home").heroButton2}
           </a>
         </div>
       </section>
 
       <section id="about" aria-label="Rreth meje">
-        <p className="section-label">Rreth Meje</p>
-        <h2 className="section-title">Kush Jam Unë</h2>
+        <p className="section-label">{t("home").aboutLabel}</p>
+        <h2 className="section-title">{t("home").aboutTitle}</h2>
         <div className="divider"></div>
         <div className="about-grid">
           <div className="about-text">
-            <p>
-              Jam student i vitit të tretë në Inxhinieri Kompjuterike, me pasion
-              të thellë për Machine Learning dhe Data Science. Punoj si
-              zhvillues full-stack — kryesisht me Django, Laravel dhe React.js —
-              por aty ku ndjehem më në shtëpi është te të dhënat dhe modelet,
-              duke përdorur PyTorch dhe ekosistemi i Python-it.
-            </p>
-            <p>
-              Kam pak përvojë si freelancer, duke ndërtuar zgjidhje të plota nga
-              dizajni deri tek "deployment"-i. Aktualisht jam duke ndërtuar
-              portfolio tim dhe duke kërkuar mundësinë e parë profesionale ku
-              mund të kontribuoj me aftësitë e mia.
-            </p>
+            <p>{t("home").aboutText1}</p>
+            <p>{t("home").aboutText2}</p>
           </div>
           {/* <div className="about-stats">
             <div className="stat-card">
@@ -69,9 +57,9 @@ function Main() {
         </div>
       </section>
 
-      <section id="experience" aria-label="Përvoja e punës">
-        <p className="section-label">Përvojë</p>
-        <h2 className="section-title">Çfarë kam ndërtuar</h2>
+      <section id="experience" aria-label={t("home").experienceLabel}>
+        <p className="section-label">{t("home").experienceLabel}</p>
+        <h2 className="section-title">{t("home").experienceTitle}</h2>
         <div className="divider"></div>
         <div className="experience-list">
           <article className="exp-card">
@@ -91,24 +79,21 @@ function Main() {
               >
                 Rent a Car Visi ↗
               </a>
-              <p className="exp-desc">
-                Ndërtova "web" faqen kompanisë Rent a Car Visi — duke përfshirë
-                dizajnin, zhvillimin front-end dhe publikimin online.
-              </p>
-              <p className="exp-desc">
-                Një web faqe e thjesht për atraktimin e sa më shumë klientëve.
-              </p>
+              <p className="exp-desc">{t("home").experienceDesc1}</p>
+              <p className="exp-desc">{t("home").experienceDesc2}</p>
               <div className="exp-tech">
                 <span className="tag">React</span>
+                <span className="tag">JavaScript</span>
+                <span className="tag">Vite</span>
               </div>
             </div>
           </article>
         </div>
       </section>
 
-      <section id="projects" aria-label="Projektet e GitHub">
-        <p className="section-label">Projektet</p>
-        <h2 className="section-title">Projektet Në GitHub</h2>
+      <section id="projects" aria-label={t("home").projectsTitle}>
+        <p className="section-label">{t("home").projectsLabel}</p>
+        <h2 className="section-title">{t("home").projectsTitle}</h2>
         <div className="divider"></div>
 
         <div className="projects-grid">
@@ -146,13 +131,8 @@ function Main() {
               </span>
             </div>
             <div className="project-name">Hosting Service</div>
-            <p className="project-desc">
-              Projekt i fakulltetit, ku zhvillova një Web App/CRUD App të
-              Hostingut( diqka si Netlify/Hostinger).
-            </p>
-            <p className="project-desc">
-              Isha "lead"-er i grupit, ku edhe isha si "Full-Stack Developer".
-            </p>
+            <p className="project-desc">{t("home").projects[0].desc1}</p>
+            <p className="project-desc">{t("home").projects[0].desc2}</p>
             <div className="project-tech">
               <span className="tag">Laravel</span>
               <span className="tag">React</span>
@@ -186,13 +166,8 @@ function Main() {
               </span>
             </div>
             <div className="project-name">Online Banking Service</div>
-            <p className="project-desc">
-              Projekt i fakulltetit, ku duhej t'i kodojmë disa "Use Cases".
-            </p>
-            <p className="project-desc">
-              Projekti përfshinë menaxhimin e autentikimit, dërgimin e
-              "E-Mail"-eve, etj.
-            </p>
+            <p className="project-desc">{t("home").projects[1].desc1}</p>
+            <p className="project-desc">{t("home").projects[1].desc2}</p>
             <div className="project-tech">
               <span className="tag">Laravel</span>
               <span className="tag">React</span>
@@ -227,14 +202,54 @@ function Main() {
               </span>
             </div>
             <div className="project-name">Lost And Found</div>
-            <p className="project-desc">
-              Projektit i fakulltetit, një "Website" ku studentët mund t'i
-              paraqesin gjë sendet që i kanë humbur/gjetur në kampus.
-            </p>
+            <p className="project-desc">{t("home").projects[2].desc1}</p>
+            <p className="project-desc">{t("home").projects[2].desc2}</p>
             <div className="project-tech">
               <span className="tag">HTML</span>
               <span className="tag">CSS</span>
               <span className="tag">PHP</span>
+            </div>
+          </a>
+
+          <a
+            href="https://github.com/Shend-T/Loopback"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-card"
+            aria-label="Loopback"
+          >
+            <div className="project-card-header">
+              <div className="project-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path
+                      d="M18 4L21 7M21 7L18 10M21 7H7C4.79086 7 3 8.79086 3 11M6 20L3 17M3 17L6 14M3 17H17C19.2091 17 21 15.2091 21 13"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+              <span className="project-arrow">
+                <svg viewBox="0 0 24 24">
+                  <path d="M7 17L17 7M17 7H7M17 7v10" />
+                </svg>
+              </span>
+            </div>
+
+            <div className="project-name">Loopback</div>
+            <p className="project-desc">{t("home").projects[3].desc1}</p>
+            <p className="project-desc">{t("home").projects[3].desc2}</p>
+            <div className="project-tech">
+              <span className="tag">.NET</span>
+              <span className="tag">Angular</span>
+              <span className="tag">PostgreSQL</span>
             </div>
           </a>
 
@@ -263,10 +278,8 @@ function Main() {
               </span>
             </div>
             <div className="project-name">Rent A Car Visi</div>
-            <p className="project-desc">
-              Një web faqe e thjesht për atraktimin e sa më shumë klientëve. Për
-              kompaninë Rent A Car Visi.
-            </p>
+            <p className="project-desc">{t("home").projects[4].desc1}</p>
+            <p className="project-desc">{t("home").projects[4].desc2}</p>
             <div className="project-tech">
               <span className="tag">React.js</span>
             </div>
@@ -274,22 +287,17 @@ function Main() {
         </div>
       </section>
 
-      <section id="education" aria-label="Arsimimi dhe certifikatat">
-        <p className="section-label">Arsimimi & Certifikatat</p>
-        <h2 className="section-title">Edukimi Im</h2>
+      <section id="education" aria-label={t("home").eduLabel}>
+        <p className="section-label">{t("home").eduLabel}</p>
+        <h2 className="section-title">{t("home").eduTitle}</h2>
         <div className="divider"></div>
 
         <div className="edu-grid">
           <div className="edu-card">
-            <h3>Shkenca Kompjuterike dhe Inxhinieri</h3>
+            <h3>{t("home").eduUniversity}</h3>
             <div className="edu-sub">UBT</div>
-            <div className="edu-meta">
-              Prishtinë, Kosovë · 2024 - 2026 (në vazhdim)
-            </div>
-            <p>
-              Viti i tretë i studimeve Bachelor. Fushat kryesore të interesit:
-              Machine Learning, Algoritmat, Zhvillimi i Softuerit.
-            </p>
+            <div className="edu-meta">Prishtinë, Kosovë · 2024 - 2027</div>
+            <p>{t("home").eduUniversityDesc}</p>
           </div>
           <div>
             <h3
@@ -303,7 +311,7 @@ function Main() {
                 marginBottom: "1rem",
               }}
             >
-              Certifikatat:
+              {t("home").eduCert}:
             </h3>
             <div className="cert-list">
               <a
@@ -327,7 +335,9 @@ function Main() {
                   </span>
                 </div>
 
-                <div className="cert-issuer">FreeCodeCamp · 6 Shkurt 2023</div>
+                <div className="cert-issuer">
+                  FreeCodeCamp · 6 {t("home").eduCert1} 2023
+                </div>
               </a>
 
               <a
@@ -351,7 +361,9 @@ function Main() {
                   </span>
                 </div>
 
-                <div className="cert-issuer">FreeCodeCamp · 16 Prill 2023</div>
+                <div className="cert-issuer">
+                  FreeCodeCamp · 16 {t("home").eduCert2} 2023
+                </div>
               </a>
 
               <a
@@ -373,7 +385,9 @@ function Main() {
                   </span>
                 </div>
 
-                <div className="cert-issuer">FreeCodeCamp · 17 Janar 2023</div>
+                <div className="cert-issuer">
+                  FreeCodeCamp · 17 {t("home").eduCert3} 2023
+                </div>
               </a>
             </div>
           </div>
@@ -382,16 +396,13 @@ function Main() {
 
       <section id="contact" aria-label="Kontakti">
         <div class="contact-inner">
-          <p class="section-label">Kontakti</p>
-          <h2 class="section-title">Le të flasim</h2>
+          <p class="section-label">{t("home").contactLabel}</p>
+          <h2 class="section-title">{t("home").contactTitle}</h2>
           <div class="divider" style={{ margin: "0 auto 2rem" }}></div>
-          <p>
-            Jam i hapur për mundësi pune, bashkëpunime, apo thjesht një bisedë
-            rreth teknologjisë. Mos ngurroni të më shkruani.
-          </p>
+          <p>{t("home").contactP}</p>
           <div class="contact-links">
-            <a href="mailto:sheend102@gmail.com" class="btn-primary">
-              Më shkruani ↗
+            <a href="mailto:shend@shendt.dev" class="btn-primary">
+              {t("home").contactEmail} ↗
             </a>
             <a
               href="https://github.com/Shend-T"

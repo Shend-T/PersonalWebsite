@@ -71,6 +71,19 @@ nav {
 .nav-socials a:hover {
   color: var(--color-primary);
 }
+.lang-btn {
+  margin: 0 5px;
+  border: none;
+
+  color: var(--text-muted);
+  background-color: transparent;
+}
+.lang-btn.active {
+  border-bottom: 1px solid var(--color-primary);
+}
+.lang-btn button:hover {
+  color: var(--color-primary);
+}
 
 @media (max-width: 684px) {
   nav {

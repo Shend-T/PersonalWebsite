@@ -1,9 +1,11 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useLang } from "../hooks/useLang";
 
 import image1 from "../assets/notfound.png";
 
 function NotFound() {
+  const { t } = useLang();
+
   const navigate = useNavigate();
 
   return (
@@ -27,7 +29,7 @@ function NotFound() {
         </div>
         <h1 className="display-4 fw-bold">
           <span className="primary-text">404</span>,{" "}
-          <span className="secondary-text">Kjo Faqe Nuk Ekziston</span>
+          <span className="secondary-text">{t("notFound").title}</span>
         </h1>
         <div className="col-lg-6 mx-auto">
           <div className="d-flex justify-content-center gap-3 mb-4">
@@ -35,7 +37,7 @@ function NotFound() {
               className="btn-primary btn-border"
               onClick={() => navigate("/")}
             >
-              Kthehu
+              {t("notFound").button}
             </button>
           </div>
         </div>

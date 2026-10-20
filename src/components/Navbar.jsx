@@ -1,5 +1,6 @@
-import React from "react";
 import "./Navbar.css";
+import LanguageToggle from "./LanguageToggle";
+import { useLang } from "../hooks/useLang";
 
 import { Link, useLocation } from "react-router-dom";
 
@@ -7,6 +8,7 @@ import logo from "../assets/logo.png";
 
 function Navbar() {
   const { pathname } = useLocation();
+  const { t } = useLang();
 
   return (
     <nav role="navigation" aria-label="Navigimi kryesor">
@@ -14,21 +16,11 @@ function Navbar() {
         <img src={logo} alt="Shend Tytynxhiu" />
       </Link>
       <ul class="nav-links">
-        <li>
-          <a href="#about">Rreth meje</a>
-        </li>
-        <li>
-          <a href="#experience">Përvoja Ime</a>
-        </li>
-        <li>
-          <a href="#projects">Projektet</a>
-        </li>
-        <li>
-          <a href="#education">Edukimi</a>
-        </li>
-        <li>
-          <a href="#contact">Kontakti</a>
-        </li>
+        {t("navbar").map((item) => (
+          <li key={item.href}>
+            <a href={item.href}>{item.label}</a>
+          </li>
+        ))}
       </ul>
       <div class="nav-socials">
         <a
@@ -47,6 +39,7 @@ function Navbar() {
         >
           LinkedIn
         </a>
+        <LanguageToggle />
       </div>
     </nav>
   );
